@@ -4,494 +4,509 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Isha Tampa Bay</title>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Nunito+Sans:wght@300;400;600;800&display=swap');
 
-    html,body{
-      margin:0;
-      padding:0;
-      background:#fcf8ef;
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fcf8ef;
     }
 
-    .iw-page{
-      background:#fcf8ef;
-      width:100%;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      font-family:'Nunito Sans',sans-serif;
-      position:relative;
-      overflow-y:auto;
-      overflow-x:hidden;
-      box-sizing:border-box;
+    .iw-page {
+      background: #fcf8ef;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: "Nunito Sans", sans-serif;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-sizing: border-box;
     }
 
-    .iw-rays{display:none}
-    .iw-glow{display:none}
+    .iw-rays { display: none; }
+    .iw-glow { display: none; }
 
-    .iw-body{
-      position:relative;
-      z-index:2;
-      width:100%;
-      max-width:480px;
-      padding:0 0 32px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      box-sizing:border-box;
+    .iw-body {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 480px;
+      padding: 0 0 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
     }
 
-    .iw-logo-line{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin-bottom:14px;
+    .iw-logo-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
     }
 
-    .iw-brand-img{
-      height:56px;
-      width:auto;
-      display:block;
-      border-radius:8px;
+    .iw-brand-img {
+      height: 56px;
+      width: auto;
+      display: block;
+      border-radius: 8px;
     }
 
-    .iw-hero{
-      width:100%;
-      background:#0d2154;
-      border-radius:20px;
-      padding:24px 18px 22px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      margin-bottom:20px;
-      position:relative;
-      overflow:hidden;
+    .iw-hero {
+      width: 100%;
+      background: #0d2154;
+      border-radius: 20px;
+      padding: 24px 18px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .iw-hero-rays{
-      position:absolute;
-      top:-60px;
-      left:50%;
-      transform:translateX(-50%);
-      width:440px;
-      height:280px;
-      background:conic-gradient(from 260deg at 50% 0%, transparent 0deg, rgba(232,112,10,.07) 18deg, transparent 36deg, rgba(232,112,10,.05) 54deg, transparent 72deg, rgba(232,112,10,.07) 90deg, transparent 108deg);
-      pointer-events:none;
+    .iw-hero-rays {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 440px;
+      height: 280px;
+      background: conic-gradient(from 260deg at 50% 0, transparent 0deg, rgba(232,112,10,.07) 18deg, transparent 36deg, rgba(232,112,10,.05) 54deg, transparent 72deg, rgba(232,112,10,.07) 90deg, transparent 108deg);
+      pointer-events: none;
     }
 
-    .iw-hero-glow{
-      position:absolute;
-      top:-40px;
-      left:50%;
-      transform:translateX(-50%);
-      width:260px;
-      height:160px;
-      background:radial-gradient(ellipse at 50% 0%, rgba(232,112,10,.22) 0%, transparent 70%);
-      pointer-events:none;
+    .iw-hero-glow {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 160px;
+      background: radial-gradient(ellipse at 50% 0, rgba(232,112,10,.22) 0, transparent 70%);
+      pointer-events: none;
     }
 
-    .iw-h1{
-      font-family:'Libre Baskerville',serif;
-      font-size:32px;
-      font-weight:400;
-      color:#fff;
-      text-align:center;
-      line-height:1.18;
-      margin:0 0 4px;
-      position:relative;
-      z-index:2;
+    .iw-h1 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: #fff;
+      text-align: center;
+      line-height: 1.18;
+      margin: 0 0 4px;
+      position: relative;
+      z-index: 2;
     }
 
-    .iw-h1 em{
-      font-style:italic;
-      color:#f0923a;
+    .iw-h1 em {
+      font-style: italic;
+      color: #f0923a;
     }
 
-    .iw-tagline{
-      font-size:12px;
-      font-weight:300;
-      color:rgba(180,200,240,.75);
-      text-align:center;
-      letter-spacing:.03em;
-      margin:0;
-      position:relative;
-      z-index:2;
+    .iw-tagline {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(180,200,240,.75);
+      text-align: center;
+      letter-spacing: .03em;
+      margin: 0;
+      position: relative;
+      z-index: 2;
     }
 
-    .iw-sep{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:20px;
-      width:160px;
+    .iw-sep {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      width: 160px;
     }
 
-    .iw-sep-line{
-      flex:1;
-      height:1px;
-      background:linear-gradient(to right, transparent, rgba(232,112,10,.5));
+    .iw-sep-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(232,112,10,.5));
     }
 
-    .iw-sep-line.r{
-      background:linear-gradient(to left, transparent, rgba(232,112,10,.5));
+    .iw-sep-line.r {
+      background: linear-gradient(to left, transparent, rgba(232,112,10,.5));
     }
 
-    .iw-sep-diamond{
-      width:5px;
-      height:5px;
-      background:#e8700a;
-      transform:rotate(45deg);
-      opacity:.8;
+    .iw-sep-diamond {
+      width: 5px;
+      height: 5px;
+      background: #e8700a;
+      transform: rotate(45deg);
+      opacity: .8;
     }
 
-    .iw-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      width:100%;
-      margin-bottom:28px;
+    .iw-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+      margin-bottom: 28px;
     }
 
-    .iw-content{
-      width:100%;
-      padding:0 18px;
-      box-sizing:border-box;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
+    .iw-content {
+      width: 100%;
+      padding: 0 18px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
-    .iw-follow-label{
-      font-size:13px;
-      font-weight:600;
-      color:rgba(13,33,84,.55);
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      text-align:center;
-      margin-bottom:10px;
-      width:100%;
+    .iw-follow-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(13,33,84,.55);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 10px;
+      width: 100%;
     }
 
-    .iw-card{
-      background:#fcf8ef;
-      border:none;
-      border-radius:16px;
-      text-decoration:none;
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
+    .iw-card {
+      background: #fcf8ef;
+      border: none;
+      border-radius: 16px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
-    .iw-card-img{
-      width:100%;
-      aspect-ratio:1/1;
-      object-fit:contain;
-      display:block;
-      padding:28px;
-      box-sizing:border-box;
+    .iw-card-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: contain;
+      display: block;
+      padding: 28px;
+      box-sizing: border-box;
     }
 
-    .iw-card.ig .iw-card-img{
-      padding:38px;
+    .iw-card.ig .iw-card-img {
+      padding: 38px;
     }
 
-    .iw-card-text{
-      text-align:center;
-      padding:10px 8px;
+    .iw-card-text {
+      text-align: center;
+      padding: 10px 8px;
     }
 
-    .iw-card.wa .iw-card-text{
-      background:#25d366;
+    .iw-card.wa .iw-card-text {
+      background: #25d366;
     }
 
-    .iw-card.ig .iw-card-text{
-      background:#e1306c;
+    .iw-card.ig .iw-card-text {
+      background: #e1306c;
     }
 
-    .iw-label{
-      font-size:17px;
-      font-weight:700;
-      color:#fff;
-      line-height:1.25;
+    .iw-label {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
     }
 
-    .iw-sub{
-      font-size:13.5px;
-      font-weight:300;
-      color:rgba(255,255,255,.85);
-      line-height:1.4;
-      margin-top:2px;
+    .iw-sub {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: rgba(255,255,255,.85);
+      line-height: 1.4;
+      margin-top: 2px;
     }
 
-    .iw-banner{
-      width:100%;
-      border-radius:16px;
-      text-decoration:none;
-      cursor:pointer;
-      transition:transform .2s, box-shadow .2s;
-      margin-bottom:24px;
-      overflow:hidden;
-      display:block;
+    .iw-banner {
+      width: 100%;
+      border-radius: 16px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      margin-bottom: 24px;
+      overflow: hidden;
+      display: block;
     }
 
-    .iw-banner:last-of-type{
-      margin-bottom:0;
+    .iw-banner:last-of-type {
+      margin-bottom: 0;
     }
 
-    .iw-banner:hover{
-      transform:translateY(-2px);
-      box-shadow:0 8px 32px rgba(0,0,0,.25);
+    .iw-banner:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,.25);
     }
 
-    .iw-banner-photo{
-      display:block;
-      width:100%;
-      aspect-ratio:16/9;
-      object-fit:cover;
-      object-position:center 30%;
+    .iw-banner-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      object-position: center 30%;
     }
 
-    .iw-banner-text{
-      background:#d36002;
-      padding:12px 16px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+    .iw-banner-text {
+      background: #d36002;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .iw-banner-left{
-      flex:1;
-      min-width:0;
+    .iw-banner-left {
+      flex: 1;
+      min-width: 0;
     }
 
-    .iw-banner-title{
-      font-size:19.5px;
-      font-weight:700;
-      color:#fff;
-      line-height:1.2;
+    .iw-banner-title {
+      font-size: 19.5px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
     }
 
-    .iw-banner-subtitle{
-      font-size:15.5px;
-      font-weight:300;
-      color:rgba(255,255,255,.85);
-      line-height:1.2;
-      margin-top:2px;
+    .iw-banner-subtitle {
+      font-size: 15.5px;
+      font-weight: 300;
+      color: rgba(255,255,255,.85);
+      line-height: 1.2;
+      margin-top: 2px;
     }
 
-    .iw-banner-date{
-      font-size:14px;
-      font-weight:300;
-      margin-top:4px;
-      color:rgba(255,255,255,.85);
+    .iw-banner-date {
+      font-size: 14px;
+      font-weight: 300;
+      margin-top: 4px;
+      color: rgba(255,255,255,.85);
     }
 
-    .iw-banner-btn{
-      border-radius:8px;
-      padding:7px 13px;
-      font-size:15.5px;
-      font-weight:700;
-      white-space:nowrap;
-      flex-shrink:0;
-      margin-left:12px;
-      background:rgba(255,255,255,.2);
-      color:#fff;
-      border:1px solid rgba(255,255,255,.4);
+    .iw-banner-btn {
+      border-radius: 8px;
+      padding: 7px 13px;
+      font-size: 15.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 12px;
+      background: rgba(255,255,255,.2);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.4);
     }
 
-    .iw-footer{
-      margin-top:18px;
-      font-size:10px;
-      font-weight:300;
-      color:rgba(13,33,84,.5);
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      text-align:center;
+    .iw-footer {
+      margin-top: 18px;
+      font-size: 10px;
+      font-weight: 300;
+      color: rgba(13,33,84,.5);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-align: center;
     }
 
-    .iw-top-banner{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      height:68px;
-      z-index:999;
-      background:rgba(128,128,128,0);
-      border-bottom:1px solid rgba(255,255,255,0);
-      transition:background .24s ease,border-color .24s ease;
-      pointer-events:none;
+    .iw-top-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 68px;
+      z-index: 999;
+      background: rgba(128,128,128,0);
+      border-bottom: 1px solid rgba(255,255,255,0);
+      transition: background .24s ease, border-color .24s ease;
+      pointer-events: none;
     }
 
-    .iw-top-banner.is-scrolled{
-      background:rgba(128,128,128,.08);
-      border-bottom:1px solid rgba(255,255,255,.16);
+    .iw-top-banner.is-scrolled {
+      background: rgba(128,128,128,.08);
+      border-bottom: 1px solid rgba(255,255,255,.16);
     }
 
-	.iw-floating-logo{
-	  position:fixed;
-	  top:10px;
-	  right:14px;
-	  height:53px;
-	  width:auto;
-	  border-radius:6px;
-	  z-index:1000;
-	  box-shadow:0 2px 12px rgba(0,0,0,.28);
-	  background:rgba(180,180,180,.18);
-	  backdrop-filter:blur(8px);
-	  -webkit-backdrop-filter:blur(8px);
-	  display:block;
-	  opacity:0;
-	  transform:translateY(-4px);
-	  transition:opacity .28s ease, transform .28s ease;
-	}
-
-	.iw-floating-logo.is-visible{
-	  opacity:1;
-	  transform:translateY(0);
-	}
-
-    .iw-hero-banner{
-      width:100%;
-      border-radius:0;
-      overflow:hidden;
-      margin-bottom:28px;
+    .iw-floating-logo {
+      position: fixed;
+      top: 10px;
+      right: 14px;
+      height: 53px;
+      width: auto;
+      border-radius: 6px;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,.28);
+      background: rgba(180,180,180,.18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: block;
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity .28s ease, transform .28s ease;
     }
 
-    .iw-hero-banner img{
-      display:block;
-      width:100%;
-      height:auto;
-      object-fit:cover;
+    .iw-floating-logo.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .iw-hero-banner {
+      width: 100%;
+      border-radius: 0;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .iw-hero-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
   </style>
 
-  <!-- ============================================================
-       MICROSOFT CLARITY — Analytics
-       Paste your Clarity tracking snippet below this comment.
-       Get it from: clarity.microsoft.com → Your Project → Setup
-  ============================================================ -->
-  <!-- CLARITY_SCRIPT_START -->
-<script type="text/javascript">
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "x86t17de8m");
-</script>
-  <!-- CLARITY_SCRIPT_END -->
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/x86t17de8m";
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script");
+  </script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f.fbq)f.fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1328776111997229');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=1328776111997229&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
   
-  
-	<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1328776111997229');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1328776111997229&ev=PageView&noscript=1"
-/></noscript>
-	<!-- End Meta Pixel Code -->
-
-
-
 </head>
 
 
 <body>
   <div class="iw-top-banner" aria-hidden="true"></div>
+
   <img class="iw-floating-logo" src="logo.png" alt="Isha Tampa Bay">
 
   <div class="iw-page">
     <div class="iw-body">
       <div class="iw-hero-banner">
-        <img src="hero_banner.png" alt="Isha Foundation">
+        <img src="herobanner.png" alt="Isha Foundation">
       </div>
 
       <div class="iw-content">
+        <p class="iw-follow-label">Follow us for Local events &amp; Updates</p>
 
-      <p class="iw-follow-label">Follow us for Local events &amp; Updates</p>
+        <div class="iw-grid">
+          <a id="btn-whatsapp" class="iw-card wa" href="https://chat.whatsapp.com/FAcD9G3Qt0T04seeNQImiO" target="_blank" rel="noopener">
+            <img class="iw-card-img" alt="WhatsApp" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+            <div class="iw-card-text">
+              <div class="iw-label">WhatsApp</div>
+              <div class="iw-sub">Local events &amp; updates</div>
+            </div>
+          </a>
 
-      <div class="iw-grid">
-        <a class="iw-card wa" href="https://chat.whatsapp.com/FAcD9G3Qt0T04seeNQImiO" target="_blank">
-          <img class="iw-card-img" alt="WhatsApp" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-          <div class="iw-card-text">
-            <div class="iw-label">WhatsApp</div>
-            <div class="iw-sub">Local events &amp; updates</div>
+          <a id="btn-instagram" class="iw-card ig" href="https://www.instagram.com/ishatampabay" target="_blank" rel="noopener">
+            <img class="iw-card-img" alt="Instagram" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg">
+            <div class="iw-card-text">
+              <div class="iw-label">Instagram</div>
+              <div class="iw-sub">Local events &amp; updates</div>
+            </div>
+          </a>
+        </div>
+
+        <a id="btn-free-programs" class="iw-banner free" href="https://isha.co/tampa-free-sessions" target="_blank" rel="noopener">
+          <img class="iw-banner-photo" alt="Free Programs" src="tile3.png">
+          <div class="iw-banner-text">
+            <div class="iw-banner-left">
+              <div class="iw-banner-title">Free Programs</div>
+              <div class="iw-banner-date">Yoga &amp; meditation near you</div>
+            </div>
+            <div class="iw-banner-btn">View dates</div>
           </div>
         </a>
 
-        <a class="iw-card ig" href="https://www.instagram.com/isha_tampa_bay/" target="_blank">
-          <img class="iw-card-img" alt="Instagram" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg">
-          <div class="iw-card-text">
-            <div class="iw-label">Instagram</div>
-            <div class="iw-sub">Local events &amp; updates</div>
+        <a id="btn-hatha-yoga" class="iw-banner hatha" href="https://isha.co/tampa-hatha" target="_blank" rel="noopener">
+          <img class="iw-banner-photo" alt="Hatha Yoga" src="tile4.png">
+          <div class="iw-banner-text">
+            <div class="iw-banner-left">
+              <div class="iw-banner-title">Classical Hatha Yoga</div>
+              <div class="iw-banner-date">In-Person programs</div>
+            </div>
+            <div class="iw-banner-btn">View dates</div>
+          </div>
+        </a>
+
+        <a id="btn-inner-engineering" class="iw-banner paid" href="https://online.innerengineering.com/en/program-details/inner-engineering-in-person-city?program=10061&tampa-florida-us-sep-17-2026" target="_blank" rel="noopener">
+          <img class="iw-banner-photo" alt="Inner Engineering" src="tile5.png">
+          <div class="iw-banner-text">
+            <div class="iw-banner-left">
+              <div class="iw-banner-title">Inner Engineering</div>
+              <div class="iw-banner-subtitle">In-Person</div>
+              <div class="iw-banner-date">Sep 17–20 · Tampa Woman's Club</div>
+            </div>
+            <div class="iw-banner-btn">Register</div>
           </div>
         </a>
       </div>
-
-      <a class="iw-banner free" href="https://isha.co/tampa-free-sessions" target="_blank">
-        <img class="iw-banner-photo" alt="Free Programs" src="tile_3.png">
-        <div class="iw-banner-text">
-          <div class="iw-banner-left">
-            <div class="iw-banner-title">Free Programs</div>
-            <div class="iw-banner-date">Yoga &amp; meditation near you</div>
-          </div>
-          <div class="iw-banner-btn">View dates →</div>
-        </div>
-      </a>
-
-      <a class="iw-banner hatha" href="https://isha.co/tampa-hatha" target="_blank">
-        <img class="iw-banner-photo" alt="Hatha Yoga" src="tile_4.png">
-        <div class="iw-banner-text">
-          <div class="iw-banner-left">
-            <div class="iw-banner-title">Classical Hatha Yoga</div>
-            <div class="iw-banner-date">In-Person programs</div>
-          </div>
-          <div class="iw-banner-btn">View dates →</div>
-        </div>
-      </a>
-
-      <a class="iw-banner paid" href="https://online.innerengineering.com/en/program-details/inner-engineering-in-person-cityprogram-10061-tampa-florida-us-sep-17-2026" target="_blank">
-        <img class="iw-banner-photo" alt="Inner Engineering" src="tile_5.png">
-        <div class="iw-banner-text">
-          <div class="iw-banner-left">
-            <div class="iw-banner-title">Inner Engineering</div>
-            <div class="iw-banner-subtitle">In-Person</div>
-            <div class="iw-banner-date">Sep 17–20 · Tampa Woman's Club</div>
-          </div>
-          <div class="iw-banner-btn">Register →</div>
-        </div>
-      </a>
-
-      </div><!-- /iw-content -->
 
       <p class="iw-footer">Isha Foundation · Tampa Bay, FL</p>
     </div>
   </div>
 
   <script>
-    (function () {
-      const banner = document.querySelector('.iw-top-banner');
-      const logo = document.querySelector('.iw-floating-logo');
-
-      function onScroll() {
-        const scrolled = window.scrollY > 6;
-        if (banner) banner.classList.toggle('is-scrolled', scrolled);
-        if (logo) logo.classList.toggle('is-visible', scrolled);
+    function trackPixel(eventName) {
+      if (typeof fbq === 'function') {
+        fbq('trackCustom', eventName);
       }
+    }
 
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
+    document.addEventListener('DOMContentLoaded', function () {
+      const mapping = {
+        'btn-whatsapp': 'cta_whatsapp_click',
+        'btn-instagram': 'cta_instagram_click',
+        'btn-free-programs': 'cta_free_programs_click',
+        'btn-hatha-yoga': 'cta_hatha_yoga_click',
+        'btn-inner-engineering': 'cta_inner_engineering_click'
+      };
+
+      Object.keys(mapping).forEach(function (id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('click', function () {
+          trackPixel(mapping[id]);
+        });
+      });
+    });
+
+    const banner = document.querySelector('.iw-top-banner');
+    const logo = document.querySelector('.iw-floating-logo');
+
+    function onScroll() {
+      const scrolled = window.scrollY > 6;
+      if (banner) banner.classList.toggle('is-scrolled', scrolled);
+      if (logo) logo.classList.toggle('is-visible', scrolled);
+    }
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
   </script>
 </body>
 </html>
