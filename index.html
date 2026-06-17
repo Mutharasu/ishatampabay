@@ -1,117 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Isha Tampa Bay</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Nunito+Sans:wght@300;400;600;800&display=swap');
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;1,400&family=Nunito+Sans:wght@300;400;600&display=swap');
-  .iw{background:#0d2154;width:100%;display:flex;flex-direction:column;align-items:center;border-radius:32px;font-family:'Nunito Sans',sans-serif;position:relative;overflow:hidden;}
-  .iw-rays{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:440px;height:280px;background:conic-gradient(from 260deg at 50% 0%,transparent 0deg,rgba(232,112,10,.07) 18deg,transparent 36deg,rgba(232,112,10,.05) 54deg,transparent 72deg,rgba(232,112,10,.07) 90deg,transparent 108deg);pointer-events:none;}
-  .iw-glow{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:260px;height:160px;background:radial-gradient(ellipse at 50% 0%,rgba(232,112,10,.22) 0%,transparent 70%);pointer-events:none;}
-  .iw-body{position:relative;z-index:2;width:100%;max-width:360px;padding:28px 18px 22px;display:flex;flex-direction:column;align-items:center;}
-  .iw-logo-line{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
-  .iw-logo-dot{width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(232,112,10,.6);display:flex;align-items:center;justify-content:center;}
-  .iw-logo-dot::after{content:'';width:8px;height:8px;border-radius:50%;background:#e8700a;box-shadow:0 0 8px rgba(232,112,10,.6);}
-  .iw-brand{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,112,10,.9);}
-  .iw-h1{font-family:'Libre Baskerville',serif;font-size:32px;font-weight:400;color:#fff;text-align:center;line-height:1.18;margin:0 0 4px;}
-  .iw-h1 em{font-style:italic;color:#f0923a;}
-  .iw-tagline{font-size:12px;font-weight:300;color:rgba(180,200,240,.75);text-align:center;letter-spacing:.03em;margin-bottom:20px;}
-  .iw-sep{display:flex;align-items:center;gap:10px;margin-bottom:20px;width:160px;}
-  .iw-sep-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(232,112,10,.5));}
-  .iw-sep-line.r{background:linear-gradient(to left,transparent,rgba(232,112,10,.5));}
-  .iw-sep-diamond{width:5px;height:5px;background:#e8700a;transform:rotate(45deg);opacity:.8;}
-  .iw-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin-bottom:10px;}
-  .iw-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px 14px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;text-decoration:none;position:relative;overflow:hidden;min-height:108px;transition:background .22s,border-color .22s,transform .17s;}
-  .iw-card:hover{background:rgba(255,255,255,.09);border-color:rgba(232,112,10,.5);transform:translateY(-2px);}
-  .iw-card::after{content:'';position:absolute;bottom:-16px;right:-16px;width:56px;height:56px;border-radius:50%;opacity:.07;}
-  .iw-card.wa::after{background:#25d366;}.iw-card.ig::after{background:#f77737;}
-  .iw-icon{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;}
-  .wa .iw-icon{background:rgba(37,211,102,.15);color:#3ddb7a;}.ig .iw-icon{background:rgba(247,119,55,.15);color:#f77737;}
-  .iw-card-text{text-align:center;}
-  .iw-label{font-size:13px;font-weight:600;color:#fff;line-height:1.25;}
-  .iw-sub{font-size:10.5px;font-weight:300;color:rgba(180,200,240,.7);line-height:1.4;margin-top:2px;}
-  .iw-banner{width:100%;border-radius:16px;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-bottom:10px;position:relative;overflow:hidden;display:block;height:96px;}
-  .iw-banner:last-of-type{margin-bottom:0;}
-  .iw-banner:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.45);}
-  .iw-banner-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;}
-  .iw-banner.free  .iw-banner-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,30,90,.88) 0%,rgba(8,30,90,.62) 52%,rgba(8,30,90,.12) 100%);}
-  .iw-banner.hatha .iw-banner-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,24,70,.90) 0%,rgba(6,24,70,.65) 52%,rgba(6,24,70,.10) 100%);}
-  .iw-banner.paid  .iw-banner-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(150,58,0,.93) 0%,rgba(172,70,0,.70) 52%,rgba(200,90,0,.12) 100%);}
-  .iw-banner-content{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:2;}
-  .iw-banner-left{flex:1;min-width:0;}
-  .iw-banner-title{font-size:15px;font-weight:600;color:#fff;line-height:1.2;}
-  .iw-banner-subtitle{font-size:12px;font-weight:300;color:rgba(255,255,255,.72);line-height:1.2;margin-top:2px;}
-  .iw-banner-date{font-size:10.5px;font-weight:300;margin-top:4px;}
-  .iw-banner.free  .iw-banner-date{color:rgba(180,210,255,.85);}
-  .iw-banner.hatha .iw-banner-date{color:rgba(210,190,255,.85);}
-  .iw-banner.paid  .iw-banner-date{color:rgba(255,225,180,.9);}
-  .iw-banner-btn{border-radius:8px;padding:7px 13px;font-size:12px;font-weight:600;white-space:nowrap;flex-shrink:0;margin-left:12px;}
-  .iw-banner.free  .iw-banner-btn{background:rgba(90,171,255,.22);color:#c0dcff;border:1px solid rgba(90,171,255,.35);}
-  .iw-banner.hatha .iw-banner-btn{background:rgba(160,120,220,.22);color:#dcc8ff;border:1px solid rgba(160,120,220,.35);}
-  .iw-banner.paid  .iw-banner-btn{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.35);}
-  .iw-footer{margin-top:18px;font-size:10px;font-weight:300;color:rgba(130,160,210,.5);letter-spacing:.1em;text-transform:uppercase;text-align:center;}
-</style>
+    html,body{
+      margin:0;
+      padding:0;
+      background:#fcf8ef;
+    }
 
-<div class="iw">
-  <div class="iw-rays"></div><div class="iw-glow"></div>
-  <div class="iw-body">
-    <div class="iw-logo-line"><div class="iw-logo-dot"></div><span class="iw-brand">Isha Foundation · Tampa Bay</span></div>
-    <h1 class="iw-h1">Inner<br><em>Engineering</em></h1>
-    <p class="iw-tagline">Technology for wellbeing · Tampa, FL</p>
-    <div class="iw-sep"><div class="iw-sep-line"></div><div class="iw-sep-diamond"></div><div class="iw-sep-line r"></div></div>
+    .iw-page{
+      background:#fcf8ef;
+      width:100%;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      font-family:'Nunito Sans',sans-serif;
+      position:relative;
+      overflow-y:auto;
+      overflow-x:hidden;
+      box-sizing:border-box;
+    }
 
-    <div class="iw-grid">
-      <a class="iw-card wa" href="https://chat.whatsapp.com/FAcD9G3Qt0T04seeNQImiO" target="_blank">
-        <div class="iw-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.533 5.85L.073 23.927l6.263-1.635A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.681-.505-5.215-1.389l-.374-.222-3.878 1.014 1.036-3.773-.244-.388A9.956 9.956 0 012 12c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10z"/></svg></div>
-        <div class="iw-card-text"><div class="iw-label">WhatsApp</div><div class="iw-sub">Local events &amp; updates</div></div>
-      </a>
-      <a class="iw-card ig" href="https://www.instagram.com/isha_tampa_bay/" target="_blank">
-        <div class="iw-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-        <div class="iw-card-text"><div class="iw-label">Instagram</div><div class="iw-sub">Stories &amp; inspiration</div></div>
-      </a>
-    </div>
+    .iw-rays{display:none}
+    .iw-glow{display:none}
 
-    <a class="iw-banner free" href="https://isha.co/tampa-free-sessions" target="_blank">
-      <img class="iw-banner-photo" id="img-free" alt="Free Programs">
-      <div class="iw-banner-overlay"></div>
-      <div class="iw-banner-content">
-        <div class="iw-banner-left"><div class="iw-banner-title">Free Programs</div><div class="iw-banner-date">Yoga &amp; meditation near you</div></div>
-        <div class="iw-banner-btn">View dates →</div>
-      </div>
-    </a>
+    .iw-body{
+      position:relative;
+      z-index:2;
+      width:100%;
+      max-width:480px;
+      padding:0 0 32px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      box-sizing:border-box;
+    }
 
-    <a class="iw-banner hatha" href="https://isha.co/tampa-hatha" target="_blank">
-      <img class="iw-banner-photo" id="img-hatha" alt="Hatha Yoga">
-      <div class="iw-banner-overlay"></div>
-      <div class="iw-banner-content">
-        <div class="iw-banner-left"><div class="iw-banner-title">Hatha Yoga</div><div class="iw-banner-date">Classical yoga · in-person programs</div></div>
-        <div class="iw-banner-btn">View dates →</div>
-      </div>
-    </a>
+    .iw-logo-line{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:14px;
+    }
 
-    <a class="iw-banner paid" href="https://registration.innerengineering.com/ieo/newadmin/forms/pgmRegV2.php?sanityId=rNzJQH2nOihv6XEus2T0gW" target="_blank">
-      <img class="iw-banner-photo" id="img-ie" alt="Inner Engineering">
-      <div class="iw-banner-overlay"></div>
-      <div class="iw-banner-content">
-        <div class="iw-banner-left"><div class="iw-banner-title">Inner Engineering</div><div class="iw-banner-subtitle">(In-Person)</div><div class="iw-banner-date">Sep 17–20 · Tampa Woman's Club</div></div>
-        <div class="iw-banner-btn">Register →</div>
-      </div>
-    </a>
+    .iw-brand-img{
+      height:56px;
+      width:auto;
+      display:block;
+      border-radius:8px;
+    }
 
-    <p class="iw-footer">Isha Foundation · Tampa Bay, FL</p>
-  </div>
-</div>
+    .iw-hero{
+      width:100%;
+      background:#0d2154;
+      border-radius:20px;
+      padding:24px 18px 22px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      margin-bottom:20px;
+      position:relative;
+      overflow:hidden;
+    }
 
-<script>
-// Load images from uploaded files via fetch and convert to object URLs
-async function loadImages() {
-  const files = [
-    { id: 'img-free',  path: '/mnt/user-data/uploads/Free_programs.png',  type: 'image/png'  },
-    { id: 'img-hatha', path: '/mnt/user-data/uploads/hatha_yoga.jpg',     type: 'image/jpeg' },
-    { id: 'img-ie',    path: '/mnt/user-data/uploads/IE.jpg',             type: 'image/jpeg' }
-  ];
-  // Since we can't access the filesystem directly from browser JS, use inline base64 set via Python output
-  // The actual file will have these embedded; for the preview we load them via a trick
-}
+    .iw-hero-rays{
+      position:absolute;
+      top:-60px;
+      left:50%;
+      transform:translateX(-50%);
+      width:440px;
+      height:280px;
+      background:conic-gradient(from 260deg at 50% 0%, transparent 0deg, rgba(232,112,10,.07) 18deg, transparent 36deg, rgba(232,112,10,.05) 54deg, transparent 72deg, rgba(232,112,10,.07) 90deg, transparent 108deg);
+      pointer-events:none;
+    }
 
-// Inline the base64 data via script injection after render
-window.addEventListener('DOMContentLoaded', () => {
-  // Images will be populated by the base64 data injected below
-});
+    .iw-hero-glow{
+      position:absolute;
+      top:-40px;
+      left:50%;
+      transform:translateX(-50%);
+      width:260px;
+      height:160px;
+      background:radial-gradient(ellipse at 50% 0%, rgba(232,112,10,.22) 0%, transparent 70%);
+      pointer-events:none;
+    }
+
+    .iw-h1{
+      font-family:'Libre Baskerville',serif;
+      font-size:32px;
+      font-weight:400;
+      color:#fff;
+      text-align:center;
+      line-height:1.18;
+      margin:0 0 4px;
+      position:relative;
+      z-index:2;
+    }
+
+    .iw-h1 em{
+      font-style:italic;
+      color:#f0923a;
+    }
+
+    .iw-tagline{
+      font-size:12px;
+      font-weight:300;
+      color:rgba(180,200,240,.75);
+      text-align:center;
+      letter-spacing:.03em;
+      margin:0;
+      position:relative;
+      z-index:2;
+    }
+
+    .iw-sep{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+      width:160px;
+    }
+
+    .iw-sep-line{
+      flex:1;
+      height:1px;
+      background:linear-gradient(to right, transparent, rgba(232,112,10,.5));
+    }
+
+    .iw-sep-line.r{
+      background:linear-gradient(to left, transparent, rgba(232,112,10,.5));
+    }
+
+    .iw-sep-diamond{
+      width:5px;
+      height:5px;
+      background:#e8700a;
+      transform:rotate(45deg);
+      opacity:.8;
+    }
+
+    .iw-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      width:100%;
+      margin-bottom:28px;
+    }
+
+    .iw-content{
+      width:100%;
+      padding:0 18px;
+      box-sizing:border-box;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .iw-follow-label{
+      font-size:13px;
+      font-weight:600;
+      color:rgba(13,33,84,.55);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      text-align:center;
+      margin-bottom:10px;
+      width:100%;
+    }
+
+    .iw-card{
+      background:#fcf8ef;
+      border:none;
+      border-radius:16px;
+      text-decoration:none;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .iw-card-img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:contain;
+      display:block;
+      padding:28px;
+      box-sizing:border-box;
+    }
+
+    .iw-card.ig .iw-card-img{
+      padding:38px;
+    }
+
+    .iw-card-text{
+      text-align:center;
+      padding:10px 8px;
+    }
+
+    .iw-card.wa .iw-card-text{
+      background:#25d366;
+    }
+
+    .iw-card.ig .iw-card-text{
+      background:#e1306c;
+    }
+
+    .iw-label{
+      font-size:17px;
+      font-weight:700;
+      color:#fff;
+      line-height:1.25;
+    }
+
+    .iw-sub{
+      font-size:13.5px;
+      font-weight:300;
+      color:rgba(255,255,255,.85);
+      line-height:1.4;
+      margin-top:2px;
+    }
+
+    .iw-banner{
+      width:100%;
+      border-radius:16px;
+      text-decoration:none;
+      cursor:pointer;
+      transition:transform .2s, box-shadow .2s;
+      margin-bottom:24px;
+      overflow:hidden;
+      display:block;
+    }
+
+    .iw-banner:last-of-type{
+      margin-bottom:0;
+    }
+
+    .iw-banner:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 32px rgba(0,0,0,.25);
+    }
+
+    .iw-banner-photo{
+      display:block;
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      object-position:center 30%;
+    }
+
+    .iw-banner-text{
+      background:#d36002;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .iw-banner-left{
+      flex:1;
+      min-width:0;
+    }
+
+    .iw-banner-title{
+      font-size:19.5px;
+      font-weight:700;
+      color:#fff;
+      line-height:1.2;
+    }
+
+    .iw-banner-subtitle{
+      font-size:15.5px;
+      font-weight:300;
+      color:rgba(255,255,255,.85);
+      line-height:1.2;
+      margin-top:2px;
+    }
+
+    .iw-banner-date{
+      font-size:14px;
+      font-weight:300;
+      margin-top:4px;
+      color:rgba(255,255,255,.85);
+    }
+
+    .iw-banner-btn{
+      border-radius:8px;
+      padding:7px 13px;
+      font-size:15.5px;
+      font-weight:700;
+      white-space:nowrap;
+      flex-shrink:0;
+      margin-left:12px;
+      background:rgba(255,255,255,.2);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.4);
+    }
+
+    .iw-footer{
+      margin-top:18px;
+      font-size:10px;
+      font-weight:300;
+      color:rgba(13,33,84,.5);
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      text-align:center;
+    }
+
+    .iw-top-banner{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      height:68px;
+      z-index:999;
+      background:rgba(128,128,128,0);
+      border-bottom:1px solid rgba(255,255,255,0);
+      transition:background .24s ease,border-color .24s ease;
+      pointer-events:none;
+    }
+
+    .iw-top-banner.is-scrolled{
+      background:rgba(128,128,128,.08);
+      border-bottom:1px solid rgba(255,255,255,.16);
+    }
+
+	.iw-floating-logo{
+	  position:fixed;
+	  top:10px;
+	  right:14px;
+	  height:53px;
+	  width:auto;
+	  border-radius:6px;
+	  z-index:1000;
+	  box-shadow:0 2px 12px rgba(0,0,0,.28);
+	  background:rgba(180,180,180,.18);
+	  backdrop-filter:blur(8px);
+	  -webkit-backdrop-filter:blur(8px);
+	  display:block;
+	  opacity:0;
+	  transform:translateY(-4px);
+	  transition:opacity .28s ease, transform .28s ease;
+	}
+
+	.iw-floating-logo.is-visible{
+	  opacity:1;
+	  transform:translateY(0);
+	}
+
+    .iw-hero-banner{
+      width:100%;
+      border-radius:0;
+      overflow:hidden;
+      margin-bottom:28px;
+    }
+
+    .iw-hero-banner img{
+      display:block;
+      width:100%;
+      height:auto;
+      object-fit:cover;
+    }
+  </style>
+
+  <!-- ============================================================
+       MICROSOFT CLARITY — Analytics
+       Paste your Clarity tracking snippet below this comment.
+       Get it from: clarity.microsoft.com → Your Project → Setup
+  ============================================================ -->
+  <!-- CLARITY_SCRIPT_START -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x86t17de8m");
 </script>
+  <!-- CLARITY_SCRIPT_END -->
+</head>
+
+
+<body>
+  <div class="iw-top-banner" aria-hidden="true"></div>
+  <img class="iw-floating-logo" src="logo.png" alt="Isha Tampa Bay">
+
+  <div class="iw-page">
+    <div class="iw-body">
+      <div class="iw-hero-banner">
+        <img src="hero_banner.png" alt="Isha Foundation">
+      </div>
+
+      <div class="iw-content">
+
+      <p class="iw-follow-label">Follow us for Local events &amp; Updates</p>
+
+      <div class="iw-grid">
+        <a class="iw-card wa" href="https://chat.whatsapp.com/FAcD9G3Qt0T04seeNQImiO" target="_blank">
+          <img class="iw-card-img" alt="WhatsApp" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+          <div class="iw-card-text">
+            <div class="iw-label">WhatsApp</div>
+            <div class="iw-sub">Local events &amp; updates</div>
+          </div>
+        </a>
+
+        <a class="iw-card ig" href="https://www.instagram.com/isha_tampa_bay/" target="_blank">
+          <img class="iw-card-img" alt="Instagram" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg">
+          <div class="iw-card-text">
+            <div class="iw-label">Instagram</div>
+            <div class="iw-sub">Local events &amp; updates</div>
+          </div>
+        </a>
+      </div>
+
+      <a class="iw-banner free" href="https://isha.co/tampa-free-sessions" target="_blank">
+        <img class="iw-banner-photo" alt="Free Programs" src="tile_3.png">
+        <div class="iw-banner-text">
+          <div class="iw-banner-left">
+            <div class="iw-banner-title">Free Programs</div>
+            <div class="iw-banner-date">Yoga &amp; meditation near you</div>
+          </div>
+          <div class="iw-banner-btn">View dates →</div>
+        </div>
+      </a>
+
+      <a class="iw-banner hatha" href="https://isha.co/tampa-hatha" target="_blank">
+        <img class="iw-banner-photo" alt="Hatha Yoga" src="tile_4.png">
+        <div class="iw-banner-text">
+          <div class="iw-banner-left">
+            <div class="iw-banner-title">Hatha Yoga</div>
+            <div class="iw-banner-date">Classical yoga · in-person programs</div>
+          </div>
+          <div class="iw-banner-btn">View dates →</div>
+        </div>
+      </a>
+
+      <a class="iw-banner paid" href="https://registration.innerengineering.com/ieonewadminforms/pgmRegV2.php?sanityId=rNzJQH2nOihv6XEus2T0gW" target="_blank">
+        <img class="iw-banner-photo" alt="Inner Engineering" src="tile_5.png">
+        <div class="iw-banner-text">
+          <div class="iw-banner-left">
+            <div class="iw-banner-title">Inner Engineering</div>
+            <div class="iw-banner-subtitle">In-Person</div>
+            <div class="iw-banner-date">Sep 17–20 · Tampa Woman's Club</div>
+          </div>
+          <div class="iw-banner-btn">Register →</div>
+        </div>
+      </a>
+
+      </div><!-- /iw-content -->
+
+      <p class="iw-footer">Isha Foundation · Tampa Bay, FL</p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const banner = document.querySelector('.iw-top-banner');
+      const logo = document.querySelector('.iw-floating-logo');
+
+      function onScroll() {
+        const scrolled = window.scrollY > 6;
+        if (banner) banner.classList.toggle('is-scrolled', scrolled);
+        if (logo) logo.classList.toggle('is-visible', scrolled);
+      }
+
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
